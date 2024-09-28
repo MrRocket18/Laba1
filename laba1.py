@@ -62,11 +62,8 @@ for i in range(n): #считаем произведение элементов �
         if n>6:
                 if (i < j) & (i < n - j - 1) & ((abs(i-j)==1) or i+j==(n-2)):
                         s2=s2*A[i][j]
-                        print(A[i][j],i,j)
-                        
                 elif (i < j) & (i < n - j - 1) & (j>1) & (j<(n-2)) & (i==0):
                         s2=s2*A[i][j]
-                        print(A[i][j],i,j)
         elif (i < j) & (i < n - j - 1):
             s2=s2*A[i][j]
             
@@ -76,10 +73,8 @@ for i in range(n): # считаем сумму элементов в облас�
         if n>6:
             if (i < j)&(i > n - j - 1)&((abs(i-j)==1) or i+j==(n)):
                 s3=s3+A[i][j]
-                print(A[i][j],i,j)
             elif (i < j) & (i > n - j - 1) & (i>1) & (i<(n-2)) & (j==n-1):
                 s3=s3+A[i][j]
-                print(A[i][j],i,j)
         elif (i < j) & (i > n - j - 1):
                 s3=s3+A[i][j]
 print("Сумма в 3 области = ",s3)
