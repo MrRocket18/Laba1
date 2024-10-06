@@ -83,43 +83,14 @@ if s3>s2:  # изменяем матрицу F
     for i in range(n):
         for j in range(n):
             if (i < j) & (i < n - j - 1):
-                v=[]
-                v.append(i)
-                v.append(j)
-                v1.append(v)
-    for p in range(-1,-n-1,-1):        
-        for o in range(-1,-n-1,-1):
-            if (o < p)&(o > (-n) - p - 1):
-                v=[]
-                v.append(o)
-                v.append(p)
-                v2.append(v)
-    for i in range(len (v1)):
-        b=F[v1[i][0]][v1[i][1]]
-        F[v1[i][0]][v1[i][1]]=F[v2[i][0]][v2[i][1]]
-        F[v2[i][0]][v2[i][1]]=b
+                F[i][j],F[n-j-1][n-i-1]=F[n-j-1][n-i-1],F[i][j]
                                                                 
 else:
     for i in range(n):
         for j in range(n):
             if (i>j) & (i < n - j - 1):
-                v=[]
-                v.append(i)
-                v.append(j)
-                v1.append(v)
-    
-    for p in range(-1,-n-1,-1):
-        for o in range(n):
-            if (o < p+n) & (o <  - p - 1):
-                v=[]
-                v.append(o)
-                v.append(p)
-                v2.append(v)
-
-    for i in range(len (v1)):
-        b=F[v1[i][0]][v1[i][1]]
-        F[v1[i][0]][v1[i][1]]=F[v2[i][0]][v2[i][1]]
-        F[v2[i][0]][v2[i][1]]=b       
+                F[i][j],F[j][n-i-1]=F[j][n-i-1],F[i][j]
+      
 print_mat(F,"F")
 
 for i in range(n): #операция трансформации матрицы
