@@ -23,7 +23,7 @@ s2=1
 s3=0
 v1=[]
 v2=[]
-A,F,A_F,F_t,result=[],[],[],[],[]
+A,F,A_F,F_t,K_F_t,result=[],[],[],[],[],[]
 
 n=int(input("Введите количество строк(столбцов) квадратной матрицы в интервале от 3 до 100.\nВаш выбор:"))
 
@@ -37,6 +37,8 @@ for i in range(n):
     F.append([0]*n)
     F_t.append([0]*n)
     A_F.append([0]*n)
+    K_F_t.append([0]*n)
+    result.append([0]*n)
 
 metod=int(input("Введите число(метод), который хотите использовать:\n1-рандомный\n2-файловый\nВаш выбор:"))
 while metod < 1 or metod >2:
@@ -98,20 +100,20 @@ for i in range(n): #операция трансформации матрицы
         F_t[j][i]=F[i][j]
 print_mat(F_t,"FT")
 
-K_F_t=[[0 for _ in range(n)] for _ in range(n)] #операция умножения матрицы А на число K
+ #операция умножения матрицы А на число K
 for i in range(n):
     for j in range(n):
         K_F_t[i][j]=K*F_t[i][j]
 print_mat(K_F_t,"K*FT")
 
-A_F=[[0 for _ in range(n)] for _ in range(n)] #операция умножения матриц А на F
+ #операция умножения матриц А на F
 for i in range(n): 
         for j in range(n):
             for k in range(n):
                 A_F[i][j] += A[i][k]*F[k][j]
 print_mat(A_F,"A*F")
 
-result=[[0 for _ in range(n)] for _ in range(n)] # операция суммы матриц 
+ # операция суммы матриц 
 for i in range(n):
     for j in range(n):
         result[i][j]=A_F[i][j]+K_F_t[i][j]
